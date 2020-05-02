@@ -1,22 +1,21 @@
+ARG JACKET_PATH=/var/lib/jackett
+
 FROM arm32v7/alpine:edge as tar
 
-ARG JACKETT_CP=/var/lib/jackett
-
-ARG JACKETT_VERSION=0.16.185
+ARG JACKET_PATH
+ARG VERSION
 
 RUN apk add curl \
- && curl -L -O https://github.com/Jackett/Jackett/releases/download/v$JACKETT_VERSION/Jackett.Binaries.LinuxARM32.tar.gz \
+ && curl -L -O https://github.com/Jackett/Jackett/releases/download/v$VERSION/Jackett.Binaries.LinuxARM32.tar.gz \
  && tar xvzf Jackett.Binaries.LinuxARM32.tar.gz && rm Jackett.Binaries.LinuxARM32.tar.gz \
- && mkdir -p $JACKETT_CP && mv Jackett/* $JACKETT_CP
+ && mkdir -p $JACKET_PATH && mv Jackett/* $JACKET_PATH
 
 FROM arm32v7/mono
 
-ARG JACKETT_CP=/var/lib/jackett
+ARG JACKET_PATH
 
-COPY --from=tar $JACKETT_CP $JACKETT_CP
+COPY --from=tar $JACKET_PATH $JACKET_PATH
 
-VOLUME ["/config", "/data"]
-
-WORKDIR $JACKETT_CP
+WORKDIR $JACKET_PATH
 
 CMD ["./jackett", "-d", "/config"]

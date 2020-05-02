@@ -1,5 +1,8 @@
 # Jackett Docker Image for Raspberry Pi 
-[![Build Status](https://travis-ci.org/nelsonyaccuzzi/docker-rpi-jackett.svg?branch=master)](https://travis-ci.org/nelsonyaccuzzi/docker-rpi-jackett)
+![Travis (.org)](https://img.shields.io/travis/nelsonyaccuzzi/docker-rpi-jackett?style=flat-square)
+![Docker Image Size (latest semver)](https://img.shields.io/docker/image-size/nelsonyaccuzzi/docker-rpi-jackett?style=flat-square)
+![Docker Pulls](https://img.shields.io/docker/pulls/nelsonyaccuzzi/docker-rpi-jackett?style=flat-square)
+![Docker Image Version (latest semver)](https://img.shields.io/docker/v/nelsonyaccuzzi/docker-rpi-jackett?sort=semver&style=flat-square)
 
 ## Usage
 
